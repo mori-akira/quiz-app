@@ -35,10 +35,13 @@ button {
   background-color: #333;
   color: #eee;
   border-radius: 1rem;
+  font-weight: bold;
 }
 
-button:nth-of-type(n + 2) {
-  margin-left: 1rem;
+button:hover {
+  cursor: pointer;
+  background-color: #222;
+  color: #ddd;
 }
 
 table {

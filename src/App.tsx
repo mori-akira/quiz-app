@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Routes,
   Link,
@@ -192,7 +192,7 @@ const Result = () => {
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter basename="/quiz-app">
       <nav>
         <Link to="/">Top</Link>
       </nav>
@@ -201,7 +201,7 @@ const App = () => {
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/result" element={<Result />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 };
 
