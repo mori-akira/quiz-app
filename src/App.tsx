@@ -179,9 +179,9 @@ const Result = () => {
     <div className="content-block">
       <h2>結果</h2>
       <p>
-        正解数: {correctCount}
+        正解: {correctCount}
         <br />
-        不正解数: {incorrectCount} <br />
+        不正解: {incorrectCount} <br />
         正答率:{" "}
         {Math.round((100 * correctCount) / (correctCount + incorrectCount))}%
       </p>
