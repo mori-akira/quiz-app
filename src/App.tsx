@@ -179,11 +179,14 @@ const Result = () => {
     <div className="content-block">
       <h2>結果</h2>
       <p>
-        正解: {correctCount}
+        <span style={{display: "inline-block", width: "5rem"}}>正解</span>
+        <span>{correctCount}</span>
         <br />
-        不正解: {incorrectCount} <br />
-        正答率:{" "}
-        {Math.round((100 * correctCount) / (correctCount + incorrectCount))}%
+        <span style={{display: "inline-block", width: "5rem"}}>不正解</span>
+        <span>{incorrectCount}</span>
+        <br />
+        <span style={{display: "inline-block", width: "5rem"}}>正答率</span>
+        <span>{Math.round((100 * correctCount) / (correctCount + incorrectCount))}%</span>
       </p>
       <Link to="/">Topに戻る</Link>
     </div>

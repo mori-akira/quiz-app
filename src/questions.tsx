@@ -9,7 +9,7 @@ export type Question = {
 
 export type QuestionData = {
   question: React.ReactNode;
-  options?: string[];
+  options?: string[] | React.ReactNode[];
   answer: number | number[] | string[];
   explanation: React.ReactNode;
   aiGenerated: boolean;
@@ -141,6 +141,43 @@ export const questions: Question = {
         ),
         aiGenerated: false,
         type: "text",
+      },
+      {
+        question: <>
+          <p>
+            次のコードを実行した結果として正しいものを選べ。
+          </p>
+          <pre><code>{`
+  import pandas as pd
+  tables = pd.read_html("https://peps.python.org/")
+  print(table[1].shape)`}</code></pre>
+        </>,
+        options: [
+          "11",
+          "[22, 10]",
+          "(34,)",
+          "(47, 5)",
+        ],
+        answer: 3,
+        explanation: (
+          <>
+            <p>
+              pandasの<code>read_html()</code>を使用すると、指定したURLのWebページ上の表をスクレイピングすることができる。
+              今回は、読み込んだ表の<code>shape</code>属性を出力するため、タプル形式で行数と列数を出力していると思われる4が正解となる。
+            </p>
+            <h3>参考</h3>
+            <blockquote>
+              <a
+                href="https://pandas.pydata.org/docs/reference/api/pandas.read_html.html"
+                target="_blank"
+              >
+                https://pandas.pydata.org/docs/reference/api/pandas.read_html.html
+              </a>
+            </blockquote>
+          </>
+        ),
+        aiGenerated: false,
+        type: "single",
       },
     ],
   },

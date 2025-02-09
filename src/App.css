@@ -72,3 +72,7 @@ blockquote {
   padding-left: .5rem;
   border-left: #888 4px solid;
 }
+
+pre {
+  white-space: pre;
+}
