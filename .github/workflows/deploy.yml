@@ -1,12 +1,15 @@
-name: Deploy to GitHub Pages
+name: Build And Commit
 
 on:
   push:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
-  build-and-deploy:
+  build-and-commit:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,9 +26,11 @@ jobs:
 
       - name: Build project
         run: npm run build
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: build
+      
+      - name: Commit and push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Github Actions Automation"
+          git push origin main
