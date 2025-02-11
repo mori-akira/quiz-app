@@ -20,17 +20,18 @@ export const questions: Question = {
   "python-certified-data-practice": {
     name: "Python 3 エンジニア認定データ分析実践試験",
     data: [
+      // ---------------- 問題1 ----------------
       {
         question: (
           <p>
-            データ分析エンジニアに求められることとして、不適切なものを2つ選べ。
+            データ分析エンジニアに通常求められることとして、不適切なものを2つ選べ。
           </p>
         ),
         options: [
           "適切なデータを入手する技術",
           "データを可視化し、特性を把握する技術",
           "分析したデータを活用するためのアプリケーションを構築する技術",
-          "最新のITセキュリティ知識",
+          "一般的なのITセキュリティ知識",
           "対象のドメイン領域の知識",
         ],
         answer: [2, 3],
@@ -58,6 +59,8 @@ export const questions: Question = {
         aiGenerated: false,
         type: "multiple",
       },
+
+      // ---------------- 問題2 ----------------
       {
         question: (
           <p>
@@ -113,18 +116,19 @@ export const questions: Question = {
         aiGenerated: false,
         type: "single",
       },
+
+      // ---------------- 問題3 ----------------
       {
         question: (
           <p>
             JavaScriptのオブジェクトの書き方を基に考えられた、構造化されたデータフォーマットを記述せよ。
-            ただし、アルファベット大文字で記述すること。
           </p>
         ),
         answer: ["JSON", "json", "Json"],
         explanation: (
           <>
             <p>
-              正答はJSONである。 RFC8259によって仕様が定められている。
+              正答はJSONである。RFC8259によって仕様が定められている。
               <br />
             </p>
             <blockquote>
@@ -140,6 +144,8 @@ export const questions: Question = {
         aiGenerated: false,
         type: "text",
       },
+
+      // ---------------- 問題4 ----------------
       {
         question: (
           <>
@@ -147,7 +153,7 @@ export const questions: Question = {
             <pre>
               <code>{`
   import pandas as pd
-  tables = pd.read_html("https://peps.python.org/")
+  table = pd.read_html("https://peps.python.org/")
   print(table[1].shape)`}</code>
             </pre>
           </>
@@ -176,6 +182,8 @@ export const questions: Question = {
         aiGenerated: false,
         type: "single",
       },
+
+      // ---------------- 問題5 ----------------
       {
         question: (
           <>
@@ -208,7 +216,7 @@ export const questions: Question = {
               選択肢3は<code>IndexError</code>が発生する。
               <br />
               選択肢4は<code>elems.reshape(1, -1)</code>
-              の形であれば同等の意味を持つが、選択肢のものでは
+              であれば同等の意味を持つが、選択肢のものでは
               <code>IndexError</code>が発生する。
             </p>
             <h3>参考</h3>
@@ -220,6 +228,62 @@ export const questions: Question = {
                 https://numpy.org/doc/2.1/reference/constants.html#numpy.newaxis
               </a>
             </blockquote>
+          </>
+        ),
+        aiGenerated: false,
+        type: "single",
+      },
+
+      // ---------------- 問題6 ----------------
+      {
+        question: (
+          <>
+            <p>
+              次のコードの(( 空欄 ))に当てはまるコードとして適切なものを選べ。
+            </p>
+            <pre>
+              <code>{`
+  import numpy as np
+  a = np.array([1, 2, 3])
+  b = np.array([5, 4, 3])
+  (( 空欄 ))
+  print(c)`}</code>
+            </pre>
+            <h3>出力結果</h3>
+            <pre>{`
+  array([[6, 7, 8],
+         [5, 6, 7],
+         [4, 5, 6]])
+            `}</pre>
+          </>
+        ),
+        options: [
+          "c = a + b",
+          "c = a[np.newaxis, :] + b[np.newaxis, :]",
+          "c = a[np.newaxis, :] + b[:, np.newaxis]",
+          "c = b[np.newaxis, :] + a[:, np.newaxis]",
+        ],
+        answer: 2,
+        explanation: (
+          <>
+            <p>
+              <code>a[np.newaxis, :]</code>は行方向に次元を増やすため、次のようになります。
+            </p>
+            <pre>{`
+  array([[1, 2, 3]])`}
+            </pre>
+            <p>
+              一方、<code>b[:, np.newaxis]</code>は列方向に次元を増やすため、次のようになります。
+            </p>
+            <pre>{`
+  array([[5],
+         [4],
+         [3]])`}
+            </pre>
+            <p>
+              形状が(1, 3)と(3, 1)のndarrayを加算する場合、それぞれ行方向、列方向に同じ要素を展開し加算が行われます。
+              この計算を行うと、問題文で与えられている出力結果が得られるため、選択肢3が解答となります。
+            </p>
           </>
         ),
         aiGenerated: false,
