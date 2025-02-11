@@ -37,7 +37,7 @@ export const questions: Question = {
         explanation: (
           <>
             <p>
-              データ分析エンジニアに求められる技術は、次のようなものがあります。
+              データ分析エンジニアに求められる技術は、次のようなものがある。
             </p>
             <h3>必要なスキル</h3>
             <ul>
@@ -124,9 +124,7 @@ export const questions: Question = {
         explanation: (
           <>
             <p>
-              正答はJSONです。
-              <br />
-              RFC8259によって仕様が定められています。
+              正答はJSONである。 RFC8259によって仕様が定められている。
               <br />
             </p>
             <blockquote>
@@ -143,27 +141,26 @@ export const questions: Question = {
         type: "text",
       },
       {
-        question: <>
-          <p>
-            次のコードを実行した結果として正しいものを選べ。
-          </p>
-          <pre><code>{`
+        question: (
+          <>
+            <p>次のコードを実行した結果として正しいものを選べ。</p>
+            <pre>
+              <code>{`
   import pandas as pd
   tables = pd.read_html("https://peps.python.org/")
-  print(table[1].shape)`}</code></pre>
-        </>,
-        options: [
-          "11",
-          "[22, 10]",
-          "(34,)",
-          "(47, 5)",
-        ],
+  print(table[1].shape)`}</code>
+            </pre>
+          </>
+        ),
+        options: ["11", "[22, 10]", "(34,)", "(47, 5)"],
         answer: 3,
         explanation: (
           <>
             <p>
-              pandasの<code>read_html()</code>を使用すると、指定したURLのWebページ上の表をスクレイピングすることができる。
-              今回は、読み込んだ表の<code>shape</code>属性を出力するため、タプル形式で行数と列数を出力していると思われる4が正解となる。
+              pandasの<code>read_html()</code>
+              を使用すると、指定したURLのWebページ上の表をスクレイピングすることができる。
+              今回は、読み込んだ表の<code>shape</code>
+              属性を出力するため、タプル形式で行数と列数を出力していると思われる選択肢4が正解となる。
             </p>
             <h3>参考</h3>
             <blockquote>
@@ -172,6 +169,55 @@ export const questions: Question = {
                 target="_blank"
               >
                 https://pandas.pydata.org/docs/reference/api/pandas.read_html.html
+              </a>
+            </blockquote>
+          </>
+        ),
+        aiGenerated: false,
+        type: "single",
+      },
+      {
+        question: (
+          <>
+            <p>次のコードの3行目と同等の意味を持つコードを選べ。</p>
+            <pre>
+              <code>{`
+  import numpy as np
+  elems = np.arange(6)
+  elems = elems[np.newaxis]`}</code>
+            </pre>
+          </>
+        ),
+        options: [
+          "elems = elems[:]",
+          "elems = elems[None]",
+          "elems = elems[np.nan]",
+          "elems = elems[1, -1]",
+        ],
+        answer: 1,
+        explanation: (
+          <>
+            <p>
+              <code>numpy.newaxis</code>の実体は<code>None</code>
+              であるため、選択肢2が正解となる。
+              <code>numpy.newaxis</code>
+              を使用することで、次元を一つ追加することができる。
+              <br />
+              選択肢1は次元を追加せず、元の配列を維持するのみ。
+              <br />
+              選択肢3は<code>IndexError</code>が発生する。
+              <br />
+              選択肢4は<code>elems.reshape(1, -1)</code>
+              の形であれば同等の意味を持つが、選択肢のものでは
+              <code>IndexError</code>が発生する。
+            </p>
+            <h3>参考</h3>
+            <blockquote>
+              <a
+                href="https://numpy.org/doc/2.1/reference/constants.html#numpy.newaxis"
+                target="_blank"
+              >
+                https://numpy.org/doc/2.1/reference/constants.html#numpy.newaxis
               </a>
             </blockquote>
           </>
