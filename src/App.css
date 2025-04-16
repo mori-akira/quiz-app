@@ -16,6 +16,10 @@ label {
   display: block;
 }
 
+label > select {
+  margin-left: 0.5rem;
+}
+
 .content-block {
   width: 100%;
   background-color: #eee;
@@ -68,8 +72,8 @@ table > tbody td.no-wrappable {
 }
 
 blockquote {
-  margin-left: .5rem;
-  padding-left: .5rem;
+  margin-left: 0.5rem;
+  padding-left: 0.5rem;
   border-left: #888 4px solid;
 }
 

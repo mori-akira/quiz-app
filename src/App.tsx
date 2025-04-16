@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import "./App.css";
 import {
   BrowserRouter,
@@ -9,6 +9,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { questions, QuestionData } from "./questions";
+import shuffle from "./shuffle";
 
 const Top = () => {
   const list: { [key: string]: string }[] = Object.entries(questions).map(
@@ -24,7 +25,7 @@ const Top = () => {
       <ul>
         {list.map((e) => (
           <li>
-            <Link to="/quiz" state={{ key: e.key }}>
+            <Link to="/setting" state={{ key: e.key }}>
               {e.name}
             </Link>
           </li>
@@ -34,10 +35,46 @@ const Top = () => {
   );
 };
 
-const Quiz = () => {
+const Setting = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const key = location.state.key;
+
+  const [maxCount, setMaxCount] = useState("10");
+
+  return (
+    <div className="content-block">
+      <h2>出題設定</h2>
+      <label>
+        出題数:
+        <select
+          value={maxCount}
+          onChange={(e) => setMaxCount(e.target.value)}
+          style={{ width: "3rem" }}
+        >
+          <option value={"5"}>5</option>
+          <option value={"10"}>10</option>
+          <option value={"20"}>20</option>
+          <option value={"30"}>30</option>
+          <option value={"50"}>50</option>
+        </select>
+      </label>
+      <p className="spaced"></p>
+      <button
+        onClick={() => {
+          navigate("/quiz", { state: { key, maxCount: parseInt(maxCount) } });
+        }}
+      >
+        開始
+      </button>
+    </div>
+  );
+};
+
+const Quiz = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { key, maxCount } = location.state;
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [questionType, setQuestionType] = useState<string | undefined>(
@@ -51,7 +88,10 @@ const Quiz = () => {
   const [correctCount, setCorrectCount] = useState(0);
   const [incorrectCount, setIncorrectCount] = useState(0);
 
-  const data: QuestionData[] = key in questions ? questions[key].data : [];
+  const data: QuestionData[] = useMemo(
+    () => (key in questions ? shuffle(questions[key].data) : []),
+    [key]
+  );
   const question: QuestionData = data[currentQuestionIndex];
   useEffect(() => {
     setQuestionType(question.type);
@@ -155,7 +195,7 @@ const Quiz = () => {
         <button
           onClick={() => {
             setCurrentQuestionIndex((prev) => prev + 1);
-            if (currentQuestionIndex + 1 >= data.length) {
+            if (currentQuestionIndex + 1 >= Math.min(data.length, maxCount)) {
               navigate("/result", { state: { correctCount, incorrectCount } });
             } else {
               setQuestionType(undefined);
@@ -179,14 +219,16 @@ const Result = () => {
     <div className="content-block">
       <h2>結果</h2>
       <p>
-        <span style={{display: "inline-block", width: "5rem"}}>正解</span>
+        <span style={{ display: "inline-block", width: "5rem" }}>正解</span>
         <span>{correctCount}</span>
         <br />
-        <span style={{display: "inline-block", width: "5rem"}}>不正解</span>
+        <span style={{ display: "inline-block", width: "5rem" }}>不正解</span>
         <span>{incorrectCount}</span>
         <br />
-        <span style={{display: "inline-block", width: "5rem"}}>正答率</span>
-        <span>{Math.round((100 * correctCount) / (correctCount + incorrectCount))}%</span>
+        <span style={{ display: "inline-block", width: "5rem" }}>正答率</span>
+        <span>
+          {Math.round((100 * correctCount) / (correctCount + incorrectCount))}%
+        </span>
       </p>
       <Link to="/">Topに戻る</Link>
     </div>
@@ -201,6 +243,7 @@ const App = () => {
       </nav>
       <Routes>
         <Route path="/" element={<Top />} />
+        <Route path="/setting" element={<Setting />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/result" element={<Result />} />
       </Routes>
