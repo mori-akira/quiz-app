@@ -98,33 +98,50 @@ const Quiz = () => {
   }, [question]);
 
   const handleAnswer = () => {
-    setShowExplanation(true);
-    if (questionType === "single") {
-      setIsCorrect(question.answer === userAnswer);
-    } else if (questionType === "multiple") {
-      setIsCorrect(
-        (question.answer as number[]).every((e) =>
-          ((userAnswer as number[]) ?? []).includes(e)
-        ) &&
+    const correct = (() => {
+      if (questionType === "single") {
+        return question.answer === userAnswer;
+      } else if (questionType === "multiple") {
+        return (
+          (question.answer as number[]).every((e) =>
+            ((userAnswer as number[]) ?? []).includes(e)
+          ) &&
           (userAnswer as number[]).every((e) =>
             (question.answer as number[]).includes(e)
           )
-      );
-    } else if (questionType === "text") {
-      setIsCorrect(
-        (question.answer as string[]).includes(userAnswer as string)
-      );
-    }
-    if (isCorrect) {
+        );
+      } else if (questionType === "text") {
+        return (question.answer as string[]).includes(userAnswer as string);
+      }
+      return false;
+    })();
+
+    setIsCorrect(correct);
+    setShowExplanation(true);
+    if (correct) {
       setCorrectCount((prev) => prev + 1);
     } else {
       setIncorrectCount((prev) => prev + 1);
     }
   };
 
+  if (!data.length) {
+    return <div className="content-block">問題が見つかりません。</div>;
+  }
+
   return (
     <div className="content-block">
-      <h2>{`問題 ${currentQuestionIndex + 1}`}</h2>
+      <h2>
+        {`問題 ${currentQuestionIndex + 1}`}
+        {question.aiGenerated && (
+          <span
+            className="ai-generated-mark"
+            title="生成AIによって作成された問題です"
+          >
+            AI製
+          </span>
+        )}
+      </h2>
       {question.question}
       <h2>選択肢</h2>
       {questionType === "single" && (
@@ -153,8 +170,10 @@ const Quiz = () => {
                 value={index}
                 onChange={() => {
                   const value = index;
+                  const prev = (userAnswer as number[]) ?? [];
+                  const exists = prev.includes(value);
                   setUserAnswer(
-                    userAnswer ? [...(userAnswer as number[]), value] : [value]
+                    exists ? prev.filter((v) => v !== value) : [...prev, value]
                   );
                 }}
                 disabled={showExplanation}
@@ -227,7 +246,11 @@ const Result = () => {
         <br />
         <span style={{ display: "inline-block", width: "5rem" }}>正答率</span>
         <span>
-          {Math.round((100 * correctCount) / (correctCount + incorrectCount))}%
+          {correctCount + incorrectCount > 0
+            ? `${Math.round(
+                (100 * correctCount) / (correctCount + incorrectCount)
+              )}%`
+            : "0%"}
         </span>
       </p>
       <Link to="/">Topに戻る</Link>

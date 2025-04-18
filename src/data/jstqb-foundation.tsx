@@ -1,50 +1,87 @@
-const explanation_testMethodAndPurpose = (
-  <>
-    <p>主なテスト方法とその目的は、以下の通りである。</p>
-    <table>
-      <thead>
-        <tr>
-          <th>テスト方法</th>
-          <th>テストの目的</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>スクリプトテスト</td>
-          <td>
-            仕様通りに動作することを網羅的に確認し、一定の品質を保証する。
-          </td>
-        </tr>
-        <tr>
-          <td>アドホックテスト</td>
-          <td>
-            効率よくテストを行い、たとえ設計書に不備があっても大切な動作を確認できる。
-          </td>
-        </tr>
-        <tr>
-          <td>モンキーテスト</td>
-          <td>
-            設計担当者や開発担当者の意図を考慮しない操作をすることで、想定していなかった思わぬ欠陥を見つける。
-          </td>
-        </tr>
-        <tr>
-          <td>カバレッジテスト</td>
-          <td>ソースコードを網羅的にテストすることで、欠陥を減少させる。</td>
-        </tr>
-        <tr>
-          <td>受入テスト</td>
-          <td>システムが期待通りに動作し、要件を満たすことを確認する。</td>
-        </tr>
-        <tr>
-          <td>本稼働判定</td>
-          <td>
-            システムを本稼働させた場合のリスクをステークホルダーに示して判断してもらう。
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </>
-);
+const explanation = {
+  testMethodAndPurpose: (
+    <>
+      <p>主なテスト方法とその目的は、以下の通りである。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>テスト方法</th>
+            <th>テストの目的</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>スクリプトテスト</td>
+            <td>
+              仕様通りに動作することを網羅的に確認し、一定の品質を保証する。
+            </td>
+          </tr>
+          <tr>
+            <td>アドホックテスト</td>
+            <td>
+              効率よくテストを行い、たとえ設計書に不備があっても大切な動作を確認できる。
+            </td>
+          </tr>
+          <tr>
+            <td>モンキーテスト</td>
+            <td>
+              設計担当者や開発担当者の意図を考慮しない操作をすることで、想定していなかった思わぬ欠陥を見つける。
+            </td>
+          </tr>
+          <tr>
+            <td>カバレッジテスト</td>
+            <td>ソースコードを網羅的にテストすることで、欠陥を減少させる。</td>
+          </tr>
+          <tr>
+            <td>受入テスト</td>
+            <td>システムが期待通りに動作し、要件を満たすことを確認する。</td>
+          </tr>
+          <tr>
+            <td>本稼働判定</td>
+            <td>
+              システムを本稼働させた場合のリスクをステークホルダーに示して判断してもらう。
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </>
+  ),
+
+  qaQcQms: (
+    <>
+      <h3>
+        QA（品質保証）、QC（品質管理）、QMS（品質マネジメントシステム）の説明と関係性
+      </h3>
+
+      <h4>1. QA（Quality Assurance：品質保証）</h4>
+      <p>
+        QAは、製品やサービスが所定の品質要求を満たすことを「保証」するための体系的な活動を指します。
+        <br />
+        プロセス中心であり、品質を作り込む仕組みや体制そのものの信頼性を担保します。
+        <br />
+        例：開発プロセスの標準化、監査、教育訓練など。
+      </p>
+
+      <h4>2. QC（Quality Control：品質管理）</h4>
+      <p>
+        QCは、製品やサービスそのものの品質を「管理」し、基準を満たすようにする活動です。
+        <br />
+        結果中心であり、検査やテストなどを通じて不具合の発見や修正を行います。
+        <br />
+        例：単体テスト、製品検査、バグの記録と修正など。
+      </p>
+
+      <h4>3. QMS（Quality Management System：品質マネジメントシステム）</h4>
+      <p>
+        QMSは、組織全体として品質を管理・改善するための枠組みや仕組みを指します。
+        <br />
+        QAやQCの活動もQMSの構成要素に含まれ、品質方針や目標の設定、文書管理、継続的改善（PDCA）などを含みます。
+        <br />
+        例：ISO 9001のような国際的な品質マネジメント規格。
+      </p>
+    </>
+  ),
+};
 
 export default [
   // ---------------- 問題1 ----------------
@@ -65,7 +102,7 @@ export default [
       "受入テスト",
     ],
     answer: 0,
-    explanation: explanation_testMethodAndPurpose,
+    explanation: explanation.testMethodAndPurpose,
     aiGenerated: false,
     type: "single",
   },
@@ -88,7 +125,7 @@ export default [
       "受入テスト",
     ],
     answer: 1,
-    explanation: explanation_testMethodAndPurpose,
+    explanation: explanation.testMethodAndPurpose,
     aiGenerated: false,
     type: "single",
   },
@@ -111,7 +148,7 @@ export default [
       "本稼働判定",
     ],
     answer: 2,
-    explanation: explanation_testMethodAndPurpose,
+    explanation: explanation.testMethodAndPurpose,
     aiGenerated: true,
     type: "single",
   },
@@ -134,7 +171,7 @@ export default [
       "受入テスト",
     ],
     answer: 2,
-    explanation: explanation_testMethodAndPurpose,
+    explanation: explanation.testMethodAndPurpose,
     aiGenerated: true,
     type: "single",
   },
@@ -157,7 +194,7 @@ export default [
       "本稼働判定",
     ],
     answer: 3,
-    explanation: explanation_testMethodAndPurpose,
+    explanation: explanation.testMethodAndPurpose,
     aiGenerated: true,
     type: "single",
   },
@@ -180,7 +217,7 @@ export default [
       "本稼働判定",
     ],
     answer: 4,
-    explanation: explanation_testMethodAndPurpose,
+    explanation: explanation.testMethodAndPurpose,
     aiGenerated: true,
     type: "single",
   },
@@ -214,6 +251,100 @@ export default [
       </>
     ),
     aiGenerated: false,
+    type: "multiple",
+  },
+
+  // ---------------- 問題8 ----------------
+  {
+    question: (
+      <>
+        <p>
+          製品やサービスが所定の品質要求を満たすことを「保証」するための体系的な活動を何というか。
+          <br />
+          アルファベットで答えよ。
+        </p>
+      </>
+    ),
+    answer: ["QA", "qa"],
+    explanation: explanation.qaQcQms,
+    aiGenerated: true,
+    type: "text",
+  },
+
+  // ---------------- 問題9 ----------------
+  {
+    question: (
+      <>
+        <p>
+          製品やサービスそのものの品質を「管理」し、基準を満たすようにする活動を何というか。
+          <br />
+          アルファベットで答えよ。
+        </p>
+      </>
+    ),
+    answer: ["QC", "qc"],
+    explanation: explanation.qaQcQms,
+    aiGenerated: true,
+    type: "text",
+  },
+
+  // ---------------- 問題10 ----------------
+  {
+    question: (
+      <>
+        <p>
+          組織全体として品質を管理・改善するための枠組みや仕組みを何というか。
+          <br />
+          アルファベットで答えよ。
+        </p>
+      </>
+    ),
+    answer: ["QMS", "qms"],
+    explanation: explanation.qaQcQms,
+    aiGenerated: true,
+    type: "text",
+  },
+
+  // ---------------- 問題11 ----------------
+  {
+    question: (
+      <>
+        <p>
+          次のQA、QC、QMSに関する記述として、<strong>適切でないもの</strong>
+          を1つ選べ。
+        </p>
+      </>
+    ),
+    options: [
+      "QAは、プロセスの品質を確保するための活動である。",
+      "QCは、製品やサービスそのものの品質を検証する活動である。",
+      "QMSは、QCとQAを含めた品質管理活動全体の枠組みである。",
+      "QCは、開発プロセスの標準化や教育訓練などを含む活動である。",
+      "QAは、QMSの一部である。",
+    ],
+    answer: 3,
+    explanation: explanation.qaQcQms,
+    aiGenerated: true,
+    type: "single",
+  },
+
+  // ---------------- 問題12 ----------------
+  {
+    question: (
+      <>
+        <p>QA、QC、QMSの関係として、適切なものを2つ選べ。</p>
+      </>
+    ),
+    options: [
+      "QAは、QMSの構成要素の1つである。",
+      "QCは、QMSの一部ではなく独立して行われる活動である。",
+      "QMSは、品質目標の設定や文書管理などの枠組みを含む。",
+      "QCは、プロセスの標準化や監査などを含む活動である。",
+      "QAは、完成した製品の欠陥を検出するための活動である。",
+    ],
+    answer: [0, 2],
+    explanation: explanation.qaQcQms,
+    aiGenerated: true,
     type: "multiple",
   },
 ];

@@ -3,6 +3,17 @@ h2 {
   color: #333;
 }
 
+h2 > .ai-generated-mark {
+  display: inline-block;
+  margin-left: 1rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #b33;
+  color: #fff;
+  font-size: 0.7rem;
+  transform: translateY(-2px);
+}
+
 h3 {
   font-size: 1.2rem;
   color: #333;
