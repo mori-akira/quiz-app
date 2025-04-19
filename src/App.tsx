@@ -138,7 +138,7 @@ const Quiz = () => {
             className="ai-generated-mark"
             title="生成AIによって作成された問題です"
           >
-            AI製
+            生成AI
           </span>
         )}
       </h2>

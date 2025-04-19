@@ -81,6 +81,41 @@ const explanation = {
       </p>
     </>
   ),
+
+  errorDefectFailure: (
+    <>
+      <h3>エラー（Error）</h3>
+      <p>
+        人間による誤りを指します。たとえば、プログラマがソースコードを記述する際に論理的な間違いをしてしまうことなどが該当します。
+        エラーはソフトウェアの設計、実装、または要件定義の段階で発生することがあります。
+      </p>
+
+      <h3>欠陥（Defect）</h3>
+      <p>
+        エラーが原因となってソフトウェアの中に生じた不具合です。バグ（Bug）とも呼ばれます。
+        実装されたソフトウェアの仕様や期待される動作と異なる状態が「欠陥」となります。
+      </p>
+
+      <h3>故障（Failure）</h3>
+      <p>
+        欠陥のあるソフトウェアを実行した際に、期待された結果と異なる動作をした場合に「故障」となります。
+        ユーザーが実際に遭遇する障害や異常動作を指します。
+      </p>
+
+      <h3>三者の関係</h3>
+      <p>一般的に、以下のような因果関係があります：</p>
+      <ul>
+        <li>
+          人間の <strong>エラー（Error）</strong> により、ソフトウェア内に
+          <strong>欠陥（Defect）</strong> が作り込まれる
+        </li>
+        <li>
+          その <strong>欠陥（Defect）</strong> が実行時に表面化すると、
+          <strong>故障（Failure）</strong> となる
+        </li>
+      </ul>
+    </>
+  ),
 };
 
 export default [
@@ -344,6 +379,73 @@ export default [
     ],
     answer: [0, 2],
     explanation: explanation.qaQcQms,
+    aiGenerated: true,
+    type: "multiple",
+  },
+
+  // ---------------- 問題13 ----------------
+  {
+    question: (
+      <>
+        <p>次の説明にあてはまるものとして、適切なものを選べ</p>
+        <blockquote>人間による誤りを指す</blockquote>
+      </>
+    ),
+    options: ["エラー", "欠陥", "故障", "障害"],
+    answer: 0,
+    explanation: explanation.errorDefectFailure,
+    aiGenerated: true,
+    type: "single",
+  },
+
+  // ---------------- 問題14 ----------------
+  {
+    question: (
+      <>
+        <p>次の説明にあてはまるものとして、適切なものを選べ</p>
+        <blockquote>ソフトウェアの中に生じた不具合を指す</blockquote>
+      </>
+    ),
+    options: ["エラー", "欠陥", "故障", "障害"],
+    answer: 1,
+    explanation: explanation.errorDefectFailure,
+    aiGenerated: true,
+    type: "single",
+  },
+
+  // ---------------- 問題15 ----------------
+  {
+    question: (
+      <>
+        <p>次の説明にあてはまるものとして、適切なものを選べ</p>
+        <blockquote>
+          ソフトウェアが期待された結果と異なる動作をすることを指す
+        </blockquote>
+      </>
+    ),
+    options: ["エラー", "欠陥", "故障", "障害"],
+    answer: 2,
+    explanation: explanation.errorDefectFailure,
+    aiGenerated: true,
+    type: "single",
+  },
+
+  // ---------------- 問題16 ----------------
+  {
+    question: (
+      <>
+        <p>エラー、欠陥、故障の関係として、適切なものを2つ選べ。</p>
+      </>
+    ),
+    options: [
+      "エラーが原因で欠陥が生じ、欠陥が原因で故障が発生する。",
+      "故障が原因で欠陥が埋め込まれ、欠陥が原因でエラーが発生する。",
+      "エラーと故障は同義であるが、欠陥とは異なる。",
+      "人間のエラーによって欠陥が生じ、欠陥が実行時に故障として表れる。",
+      "故障が発生した場合、その原因は常にエラーである。",
+    ],
+    answer: [0, 3],
+    explanation: explanation.errorDefectFailure,
     aiGenerated: true,
     type: "multiple",
   },
