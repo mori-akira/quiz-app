@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { questions, QuestionData } from "./questions";
 import shuffle from "./shuffle";
+import getQueryParam from "./getQueryParam";
 
 const Top = () => {
   const list: { [key: string]: string }[] = Object.entries(questions).map(
@@ -57,6 +58,7 @@ const Setting = () => {
           <option value={"20"}>20</option>
           <option value={"30"}>30</option>
           <option value={"50"}>50</option>
+          <option value={"99999999"}>全て</option>
         </select>
       </label>
       <p className="spaced"></p>
@@ -71,10 +73,14 @@ const Setting = () => {
   );
 };
 
-const Quiz = () => {
+const Quiz: React.FC<{
+  debug?: boolean;
+}> = ({ debug = false }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { key, maxCount } = location.state;
+  const key = debug ? getQueryParam("key") : location.state.key;
+  const maxCount = debug ? 1 : location.state.maxCount;
+  const index = debug ? parseInt(getQueryParam("index") ?? "0") : 0;
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [questionType, setQuestionType] = useState<string | undefined>(
@@ -89,8 +95,13 @@ const Quiz = () => {
   const [incorrectCount, setIncorrectCount] = useState(0);
 
   const data: QuestionData[] = useMemo(
-    () => (key in questions ? shuffle(questions[key].data) : []),
-    [key]
+    () =>
+      key in questions
+        ? debug
+          ? [questions[key].data[index]]
+          : shuffle(questions[key].data)
+        : [],
+    [debug, index, key]
   );
   const question: QuestionData = data[currentQuestionIndex];
   useEffect(() => {
@@ -132,7 +143,7 @@ const Quiz = () => {
   return (
     <div className="content-block">
       <h2>
-        {`問題 ${currentQuestionIndex + 1}`}
+        {`問題 ${debug ? index + 1 : currentQuestionIndex + 1}`}
         {question.aiGenerated && (
           <span
             className="ai-generated-mark"
@@ -222,6 +233,7 @@ const Quiz = () => {
               setUserAnswer(undefined);
             }
           }}
+          disabled={debug}
         >
           次へ
         </button>
@@ -268,6 +280,7 @@ const App = () => {
         <Route path="/" element={<Top />} />
         <Route path="/setting" element={<Setting />} />
         <Route path="/quiz" element={<Quiz />} />
+        <Route path="/quiz-debug" element={<Quiz debug={true} />} />
         <Route path="/result" element={<Result />} />
       </Routes>
     </BrowserRouter>
