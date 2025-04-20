@@ -40,6 +40,12 @@ label > select {
   border-radius: 1rem;
 }
 
+@media (max-width: 767px) {
+  .content-block {
+    padding: 2rem 1rem;
+  }
+}
+
 .spaced {
   margin-top: 1rem;
 }
