@@ -8,6 +8,8 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { questions, QuestionData } from "./questions";
 import shuffle from "./shuffle";
 import getQueryParam from "./getQueryParam";
@@ -153,7 +155,13 @@ const Quiz: React.FC<{
           </span>
         )}
       </h2>
-      {question.question}
+      {typeof question.sentence === "string" ? (
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {question.sentence}
+        </ReactMarkdown>
+      ) : (
+        question.sentence
+      )}
       <h2>選択肢</h2>
       {questionType === "single" && (
         <div>
@@ -218,7 +226,13 @@ const Quiz: React.FC<{
               : question.answer + 1}
           </p>
           <h2>解説</h2>
-          {question.explanation}
+          {typeof question.explanation === "string" ? (
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {question.explanation}
+            </ReactMarkdown>
+          ) : (
+            question.explanation
+          )}
         </div>
       )}
       {showExplanation && (
