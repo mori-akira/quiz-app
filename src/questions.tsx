@@ -1,7 +1,7 @@
 import React from "react";
 import pythonCertifiedDataPracticeData from "./data/python-certified-data-practice";
 import jstqbFoundationData from "./data/jstqb-foundation";
-import jstqbAdvancedTestAnalystGenerateAiVerData from "./data/jstqb-advanced-test-analyst-generateaiver";
+import jstqbAdvancedTestAnalystAIData from "./data/jstqb-advanced-test-analyst-ai";
 
 export type Question = {
   [key: string]: {
@@ -30,6 +30,6 @@ export const questions: Question = {
   },
   "jstqb-advanced-test-analyst": {
     name: "JSTQB認定テスト技術者資格試験 Advanced Level（テストアナリスト） - 生成AIバージョン",
-    data: jstqbAdvancedTestAnalystGenerateAiVerData as QuestionData[],
+    data: jstqbAdvancedTestAnalystAIData as QuestionData[],
   },
 };
