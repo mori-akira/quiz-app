@@ -8,7 +8,7 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
+import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { questions, QuestionData } from "./questions";
 import shuffle from "./shuffle";
@@ -27,7 +27,7 @@ const Top = () => {
       <h2>コンテンツ一覧</h2>
       <ul>
         {list.map((e) => (
-          <li>
+          <li key={e.key}>
             <Link to="/setting" state={{ key: e.key }}>
               {e.name}
             </Link>
@@ -156,9 +156,7 @@ const Quiz: React.FC<{
         )}
       </h2>
       {typeof question.sentence === "string" ? (
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {question.sentence}
-        </ReactMarkdown>
+        <Markdown remarkPlugins={[remarkGfm]}>{question.sentence}</Markdown>
       ) : (
         question.sentence
       )}
@@ -227,9 +225,9 @@ const Quiz: React.FC<{
           </p>
           <h2>解説</h2>
           {typeof question.explanation === "string" ? (
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            <Markdown remarkPlugins={[remarkGfm]}>
               {question.explanation}
-            </ReactMarkdown>
+            </Markdown>
           ) : (
             question.explanation
           )}
