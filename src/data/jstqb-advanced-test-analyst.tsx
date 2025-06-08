@@ -558,7 +558,7 @@ export default [
       "テスト対象に対して、残りのテストタスクを完了するために適切な予算とスケジュールが確保されている",
       "テストベースがなくても、テスト計画に基づいたテスト分析は可能である",
     ],
-    answer: [2, 3],
+    answer: [1, 5],
     explanation: explanation.testProcessTasks.testAnalysis,
     aiGenerated: false,
     type: "multiple",
