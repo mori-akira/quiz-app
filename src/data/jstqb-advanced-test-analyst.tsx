@@ -570,7 +570,6 @@ export const explanation = {
 };
 
 export default [
-  // No.1
   {
     sentence: `
 テストアナリストはSDLCにおいて、プロジェクトに関わる各役割の担当者に向けて、テストに関する情報を提供する役割を担う。
@@ -588,8 +587,6 @@ export default [
     aiGenerated: false,
     type: "multiple",
   },
-
-  // No.2
   {
     sentence: `
 テストアナリストは選択したSDLCに対し、整合するテスト活動を計画する必要がある。
@@ -607,8 +604,6 @@ export default [
     aiGenerated: false,
     type: "multiple",
   },
-
-  // No.3
   {
     sentence:
       "シーケンシャルでないSDLCを選択した場合のテストプロセスについて、誤った記述を1つ選択せよ。",
@@ -623,8 +618,6 @@ export default [
     aiGenerated: false,
     type: "single",
   },
-
-  // No.4
   {
     sentence:
       "テストアナリストがテストプロジェクトの範囲を定義する活動において行うタスクとして、正しいものを2つ選択せよ。",
@@ -640,8 +633,6 @@ export default [
     aiGenerated: false,
     type: "multiple",
   },
-
-  // No.5
   {
     sentence:
       "テストアナリストがテスト分析を効率的に進めるにあたり、確認する開始基準として誤っているものを2つ選択せよ。",
@@ -656,5 +647,707 @@ export default [
     explanation: explanation.testProcessTasks.testAnalysis,
     aiGenerated: false,
     type: "multiple",
+  },
+  {
+    sentence: "同値分割法に関する以下の記述のうち、正しいものを2つ選択せよ。",
+    options: [
+      "同値分割法はテストケース数を削減しつつ網羅性を高める技法である",
+      "同値分割法は主に構造ベーステストに分類される",
+      "有効同値クラスと無効同値クラスのそれぞれから少なくとも1つの代表値を選択する",
+      "同値分割法はテスト対象の遷移状態を詳細にモデル化することに重点を置いている",
+      "同値分割法はアジャイル開発では使用されない",
+    ],
+    answer: [0, 2],
+    explanation: explanation.testTechniques.blackBoxTestTechniques,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: "状態遷移テスト技法に関する記述として、正しいものを2つ選択せよ。",
+    options: [
+      "状態遷移テストは、イベントとアクションの関係をモデル化することに重点を置く",
+      "状態遷移テストは主に単体テストレベルで使用される",
+      "状態遷移テストは過去の状態に依存しない振る舞いのテストに適している",
+      "状態遷移テストでは、不正な遷移のテストケースも含まれることがある",
+      "状態遷移テストは主に静的テストに分類される",
+    ],
+    answer: [0, 3],
+    explanation: explanation.testTechniques.blackBoxTestTechniques,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: "探索的テストの特性として適切なものを2つ選択せよ。",
+    options: [
+      "探索的テストは事前に全ての手順を文書化することが前提である",
+      "探索的テストはテスト設計、実行、学習を同時に進める",
+      "探索的テストは欠陥を見つけるための柔軟なアプローチである",
+      "探索的テストは全てのテストが自動化されていることが前提である",
+      "探索的テストは必ずしも明確な受け入れ基準を必要としない",
+    ],
+    answer: [1, 2],
+    explanation: explanation.testTechniques.experienceBasedTestTechniques,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence:
+      "リスクアセスメントにおけるリスクレベルの決定に関して、正しいものを2つ選択せよ。",
+    options: [
+      "リスクレベルは影響の大きさと発生可能性によって決まる",
+      "リスクアセスメントではプロジェクトリスクのみを対象とする",
+      "フィーチャーの使用頻度はリスクの影響に含まれる要素である",
+      "リスクアセスメントはプロジェクトの終了時に1回のみ実施する",
+      "リスクアセスメントでは金銭的損失は評価項目にならない",
+    ],
+    answer: [0, 2],
+    explanation: explanation.testAnalystTasksInRiskBasedTest.riskAssessment,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence:
+      "クラシフィケーションツリー技法の特徴として正しいものを2つ選択せよ。",
+    options: [
+      "分類と分類子を階層的に整理する",
+      "主に構造ベースのテスト設計に用いられる",
+      "GUIテストなどでの視覚的整理に有効である",
+      "ペアワイズテストの代替として用いられることが多い",
+      "分類子の組み合わせを表形式で整理する技法である",
+    ],
+    answer: [0, 2],
+    explanation: explanation.testTechniques.blackBoxTestTechniques,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: "ハイレベルテストケースの長所として正しいものを2つ選択せよ。",
+    options: [
+      "再現性が高いため自動化に適している",
+      "テストアナリストの創造力を活かせる",
+      "詳細なドキュメントが必須である",
+      "異なるテストデータの活用による再利用性がある",
+      "初心者のテスト担当者向けである",
+    ],
+    answer: [1, 3],
+    explanation: explanation.testProcessTasks.testDesign,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: "テストデータ準備ツールの利点として正しいものを2つ選択せよ。",
+    options: [
+      "実データを使ってパフォーマンステストを行う",
+      "本番データから個人情報を削除して利用できる",
+      "仕様書に基づきソースコードを自動生成する",
+      "必要なパラメータセットから合成データを作成できる",
+      "モックサーバーの構築を支援する",
+    ],
+    answer: [1, 3],
+    explanation: explanation.testToolAndAutomation.testToolType,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence:
+      "デシジョンテーブルテストが有効な状況として適切なものを2つ選択せよ。",
+    options: [
+      "入力が単一の閾値で処理される場面",
+      "複雑なビジネスルールが複数条件で分岐する場面",
+      "状態遷移を中心にしたワークフローのテスト",
+      "条件と結果の網羅性が求められる場面",
+      "UIの視認性を中心にした評価",
+    ],
+    answer: [1, 3],
+    explanation: explanation.testTechniques.blackBoxTestTechniques,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence:
+      "品質特性「使用性」に関連するテスト技法として適切なものを2つ選択せよ。",
+    options: [
+      "チェックリストベースドテスト",
+      "ユースケーステスト",
+      "性能テスト",
+      "エラー推測",
+      "構造ベーステスト",
+    ],
+    answer: [0, 1],
+    explanation:
+      explanation.softwareQualityFeatureTest.businessDomainTestQualityFeature,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence:
+      "リスクベースドテストにおける縦型探索と横型探索に関する記述のうち、正しいものを2つ選択せよ。",
+    options: [
+      "縦型探索では、すべてのリスク領域の浅いテストを実施する",
+      "横型探索では、特定のリスクアイテムに重点を置く",
+      "縦型探索では、高リスク領域を優先して深く掘る",
+      "横型探索は、各リスク領域に最低1つのテストケースを割り当てる戦略である",
+      "縦型・横型の両方は、リスクが高くない部分のテストを最初に行う",
+    ],
+    answer: [2, 3],
+    explanation: explanation.testAnalystTasksInRiskBasedTest.riskMitigation,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence:
+      "リスク識別に関するテストアナリストの活動として正しいものを2つ選択せよ。",
+    options: [
+      "リスクの発生確率に基づいてリスクレベルを定量評価する",
+      "ユーザとのブレインストーミングセッションに参加する",
+      "リスク軽減策の優先順位を決定する",
+      "類似プロジェクトの障害傾向を参照する",
+      "すべてのリスク領域に均等なテスト量を割り当てる",
+    ],
+    answer: [1, 3],
+    explanation:
+      "explanation.testAnalystTasksInRiskBasedTest.riskIdentification",
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: "ブラックボックステスト技法として分類されるものを2つ選択せよ。",
+    options: [
+      "制御フローテスト",
+      "同値分割法",
+      "デシジョンカバレッジ",
+      "ユースケーステスト",
+      "条件判断カバレッジ",
+    ],
+    answer: [1, 3],
+    explanation: "explanation.testTechniques.blackBoxTestTechniques",
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: "キーワード駆動テストの特徴として正しいものを2つ選択せよ。",
+    options: [
+      "テストスクリプトとキーワードは密結合である必要がある",
+      "テスト設計とテスト実装が密接に統合される",
+      "テストケース記述と自動化スクリプトを分離できる",
+      "ドメインエキスパートがテスト仕様を定義しやすい",
+      "主に探索的テストで活用される",
+    ],
+    answer: [2, 3],
+    explanation: "explanation.testToolAndAutomation.keywordDrivenTest",
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: "テスト設計時に考慮すべき事項として正しいものを2つ選択せよ。",
+    options: [
+      "テスト手順は必ず詳細に記述する必要がある",
+      "テストの自動化はこの段階で完了している必要がある",
+      "合否基準は明確に定義されていなければならない",
+      "テストケースは他の担当者にも理解可能な内容であるべき",
+      "システム構成はテスト設計の対象外である",
+    ],
+    answer: [2, 3],
+    explanation: "explanation.testProcessTasks.testDesign",
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: "リスク軽減のアプローチとして正しいものを2つ選択せよ。",
+    options: [
+      "すべてのテストケースに均等な重みを与える",
+      "テスト計画時に特定のリスク領域を明示する",
+      "失敗の可能性が高い機能を後回しにする",
+      "ビジネスリスクに基づいて優先順位を設定する",
+      "低リスクの部分からテストを始める",
+    ],
+    answer: [1, 3],
+    explanation: "explanation.testAnalystTasksInRiskBasedTest.riskMitigation",
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: "テスト実装時に必要な作業として適切なものを2つ選択せよ。",
+    options: [
+      "全てのテストを手動で実行する手順を作成する",
+      "テストスイートを構成し、実行順序を検討する",
+      "テストケースの実行結果に基づいて要件を修正する",
+      "テスト環境やテストデータを準備する",
+      "すべてのテストにリグレッションラベルを付ける",
+    ],
+    answer: [1, 3],
+    explanation: "explanation.testProcessTasks.testImplementation",
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: "ユースケーステストの特徴として正しいものを2つ選択せよ。",
+    options: [
+      "複雑なアルゴリズムの処理フローを検証する",
+      "ユーザとシステムの対話を重視してテストする",
+      "コンポーネント単位での構造カバレッジを評価する",
+      "正常系および異常系の業務フローに基づくテストを行う",
+      "入力パターンをランダムに組み合わせる",
+    ],
+    answer: [1, 3],
+    explanation: "explanation.testTechniques.blackBoxTestTechniques",
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence:
+      "レビューにおけるチェックリストの利点として適切なものを2つ選択せよ。",
+    options: [
+      "レビュアーの主観に頼らず、統一された観点で確認できる",
+      "レビュープロセスが完全に自動化される",
+      "特定の品質特性に応じたカスタマイズが可能である",
+      "ドキュメントを自動生成するためのテンプレートになる",
+      "仕様と実装を同期させる",
+    ],
+    answer: [0, 2],
+    explanation: "explanation.review.checkListUseOnReview",
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence:
+      "テスト実行フェーズでテストアナリストが追加で行うべき典型的なタスクとして適切なものを2つ選択せよ。",
+    options: [
+      "テストの合否基準を再定義する",
+      "探索的テストで得られた知見を基に提案を作成する",
+      "障害データを削除してリリースする",
+      "新たに判明したリスクを特定する",
+      "すべてのテストケースを優先度順に並べ替える",
+    ],
+    answer: [1, 3],
+    explanation: "explanation.testProcessTasks.testExecution",
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: "欠陥ベースのテスト技法の特徴として正しいものを2つ選択せよ。",
+    options: [
+      "主に構造ベーステストで使用される",
+      "過去に発見された欠陥の傾向を分析して活用する",
+      "常にランダムなデータに基づいてテストを設計する",
+      "リスクに基づく優先順位付けに有効である",
+      "テスト対象が存在しない段階で適用される",
+    ],
+    answer: [1, 3],
+    explanation: "explanation.testTechniques.experienceBasedTestTechniques",
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+テストアナリストがテストケース設計時に意識すべきこととして、適切なものを2つ選択せよ。
+    `,
+    options: [
+      "テスト条件は具体的な手順とともに常に詳細に記述すべきである",
+      "テストケースの目的と期待結果は明確であるべきである",
+      "すべてのテストはUIを通じた操作のみを対象とすべきである",
+      "テスト対象間のI/Fもテスト設計に含めるべきである",
+      "探索的テストを禁止するべきである",
+    ],
+    answer: [1, 3],
+    explanation: explanation.testProcessTasks.testDesign,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+テスト実装におけるテストスイートの整理に関して正しいものを1つ選択せよ。
+    `,
+    options: [
+      "テストスイートはすべてのテストケースを一つのグループにまとめる",
+      "テストスイートは同一優先度のテストケースをグループ化する手段の一つである",
+      "テストスイートはテストの実行結果には影響を及ぼさない",
+      "テストスイートはテスト設計段階でのみ使用される",
+    ],
+    answer: 1,
+    explanation: explanation.testProcessTasks.testImplementation,
+    aiGenerated: true,
+    type: "single",
+  },
+  {
+    sentence: `
+レビューにおけるユースケースのチェックリスト項目として、適切なものを2つ選択せよ。
+    `,
+    options: [
+      "UIのカラーリングが正しく設定されているか",
+      "メインパスと代替パスが明確に定義されているか",
+      "受け入れ基準がストーリーごとに定義されているか",
+      "ユーザーインターフェースのレスポンスタイムが速いか",
+      "各パスがテスト可能であるか",
+    ],
+    answer: [1, 4],
+    explanation: explanation.review.checkListUseOnReview,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+テストデザインツールに関する記述として正しいものを2つ選択せよ。
+    `,
+    options: [
+      "テストデザインツールはソースコードの静的解析専用である",
+      "クラシフィケーションツリーツールは条件の組み合わせ生成を支援する",
+      "テストデザインツールは必ずしもカバレッジ情報を提供しない",
+      "テストアナリストはツールが提供する組み合わせ候補からテストケースを選定する",
+      "テストデザインツールはテスト結果を集計するために使う",
+    ],
+    answer: [1, 3],
+    explanation: explanation.testToolAndAutomation.testToolType,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+以下のうち、「機能正確性」に特に関連するテスト技法として適切なものを2つ選択せよ。
+    `,
+    options: [
+      "探索的テスト",
+      "境界値分析",
+      "ペアワイズテスト",
+      "デシジョンテーブルテスト",
+      "クラシフィケーションツリーテスト",
+    ],
+    answer: [1, 3],
+    explanation:
+      explanation.softwareQualityFeatureTest.businessDomainTestQualityFeature,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+チェックリストベースドテストの有効な使用シーンとして最も適切なものを1つ選択せよ。
+    `,
+    options: [
+      "構造カバレッジを評価する際",
+      "要件が存在しないフェーズでの確認",
+      "過去に障害が多発した領域での網羅性確保",
+      "状態遷移を詳細にトレースする場合",
+    ],
+    answer: 2,
+    explanation: explanation.testTechniques.experienceBasedTestTechniques,
+    aiGenerated: true,
+    type: "single",
+  },
+  {
+    sentence: `
+以下のうち、テスト実行フェーズにおける標準的なタスクとして正しいものを2つ選択せよ。
+    `,
+    options: [
+      "実行結果と期待結果を比較する",
+      "システム設計を変更する",
+      "取得した障害を削除する",
+      "テスト結果を記録する",
+      "ユーザーに納品物を提示する",
+    ],
+    answer: [0, 3],
+    explanation: explanation.testProcessTasks.testExecution,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+探索的テストの欠点として最も適切なものを1つ選択せよ。
+    `,
+    options: [
+      "テスト設計と実行を明確に分離して行える",
+      "テストチャーターを用いた目的設定ができない",
+      "予測しづらい期間とカバレッジの曖昧さがある",
+      "熟練者でなくても容易に実施可能である",
+    ],
+    answer: 2,
+    explanation: explanation.testProcessTasks.testImplementation,
+    aiGenerated: true,
+    type: "single",
+  },
+  {
+    sentence: `
+以下のうち、ユースケーステストに関して誤っているものを1つ選択せよ。
+    `,
+    options: [
+      "ユーザーの操作とシステムの応答を確認する",
+      "異常系の業務シナリオを網羅的に設計できる",
+      "仕様が不明確な場合でも無条件に適用可能である",
+      "ユーザー視点での検証に有効である",
+    ],
+    answer: 2,
+    explanation: explanation.testTechniques.blackBoxTestTechniques,
+    aiGenerated: true,
+    type: "single",
+  },
+  {
+    sentence: `
+ブラックボックステスト技法の目的として適切なものを2つ選択せよ。
+    `,
+    options: [
+      "ソースコードの各分岐が実行されるかを検証する",
+      "ユーザー要求に基づく振る舞いを確認する",
+      "ユースケースの仕様に対する整合性を確認する",
+      "コードの静的解析を支援する",
+      "制御フローの網羅率を高める",
+    ],
+    answer: [1, 2],
+    explanation: explanation.testTechniques.blackBoxTestTechniques,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+以下のうち、ハイレベルテストケースの短所として正しいものを2つ選択せよ。
+    `,
+    options: [
+      "再現性が低く、検証が困難である",
+      "初期段階では記述できない",
+      "詳細なドキュメントを必要とする",
+      "実行には経験豊富なテスターが必要である",
+      "自動化には向いている",
+    ],
+    answer: [0, 3],
+    explanation: explanation.testProcessTasks.testDesign,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+リスク識別活動におけるテストアナリストの役割として、最も適切なものを1つ選択せよ。
+    `,
+    options: [
+      "障害発生後の根本原因を分析する",
+      "リスク回避のためのソースコードを記述する",
+      "対象ドメインの知識を活かし、リスクワークショップ等に参加する",
+      "法的制約を排除するよう仕様を修正する",
+    ],
+    answer: 2,
+    explanation: explanation.testAnalystTasksInRiskBasedTest.riskIdentification,
+    aiGenerated: true,
+    type: "single",
+  },
+  {
+    sentence: `
+ブラックボックステストの中でも、入力条件の組み合わせに重点を置いた技法として正しいものを2つ選択せよ。
+    `,
+    options: [
+      "ユースケーステスト",
+      "状態遷移テスト",
+      "ペアワイズテスト",
+      "同値分割法",
+      "デシジョンテーブルテスト",
+    ],
+    answer: [2, 4],
+    explanation: explanation.testTechniques.blackBoxTestTechniques,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+以下のうち、「セキュリティ」品質特性に関連するテストとして適切なものを2つ選択せよ。
+    `,
+    options: [
+      "負荷テスト",
+      "ペネトレーションテスト",
+      "チェックリストベースのレビュー",
+      "状態遷移テスト",
+      "探索的テストによるUI評価",
+    ],
+    answer: [1, 2],
+    explanation:
+      explanation.softwareQualityFeatureTest.businessDomainTestQualityFeature,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+テスト設計の成果物に関して、正しい記述を2つ選択せよ。
+    `,
+    options: [
+      "テストケースには常に自動化が必要である",
+      "期待結果は可能な限り自動オラクルを活用して定義する",
+      "テストの目的は非観測的なものでもよい",
+      "事後条件にはテスト後のシステム状態や後続処理のトリガーなどが含まれる",
+      "テスト条件にはシステムの構成情報を含めるべきである",
+    ],
+    answer: [1, 3],
+    explanation: explanation.testProcessTasks.testDesign,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+チェックリストの調整において考慮すべき観点として正しいものを2つ選択せよ。
+    `,
+    options: [
+      "組織の標準や法的要件",
+      "テスト実装の自動化レベル",
+      "使用される開発言語の種類",
+      "レビュー対象のリスクレベル",
+      "リリースの回数",
+    ],
+    answer: [0, 3],
+    explanation: explanation.review.checkListUseOnReview,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+次のうち、テストアナリストがテスト分析時に確認する「開始基準」として適切なものを2つ選択せよ。
+    `,
+    options: [
+      "テスト計画が完了していること",
+      "テスト対象に対して予算とスケジュールが確保されていること",
+      "全てのテストツールが購入されていること",
+      "レビュー済みのテストベースが存在すること",
+      "開発スケジュールが1週間以内に終了すること",
+    ],
+    answer: [1, 3],
+    explanation: explanation.testProcessTasks.testAnalysis,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+テスト実装フェーズにおいて、優先度付けが影響するものとして最も適切なものを1つ選択せよ。
+    `,
+    options: [
+      "レビューの対象範囲",
+      "障害票のテンプレート形式",
+      "テストケースの実行順序",
+      "システムアーキテクチャの選定",
+    ],
+    answer: 2,
+    explanation: explanation.testProcessTasks.testImplementation,
+    aiGenerated: true,
+    type: "single",
+  },
+  {
+    sentence: `
+以下のうち、状態遷移テストが特に有効な状況として適切なものを2つ選択せよ。
+    `,
+    options: [
+      "データベースのレコード件数を検証する場合",
+      "ワークフローの工程が複数ある業務システム",
+      "ログ出力の有無だけを確認する場合",
+      "イベントと状態の組み合わせによって挙動が変化する機能",
+      "数値入力の範囲チェックを行うフォーム",
+    ],
+    answer: [1, 3],
+    explanation: explanation.testTechniques.blackBoxTestTechniques,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+ペアワイズテストが特に効果を発揮する状況として適切なものを1つ選択せよ。
+    `,
+    options: [
+      "状態によって動作が変わるアプリケーション",
+      "入力パラメータが多く、全組み合わせのテストが非現実的な場合",
+      "テストケースの合否基準が不明瞭な場合",
+      "パフォーマンス要件を検証する場合",
+    ],
+    answer: 1,
+    explanation: explanation.testTechniques.blackBoxTestTechniques,
+    aiGenerated: true,
+    type: "single",
+  },
+  {
+    sentence: `
+レビューに使用するチェックリストの焦点として適切なものを2つ選択せよ。
+    `,
+    options: [
+      "レビュアーの感想",
+      "ドキュメントの提出期限",
+      "対象仕様アイテム（例：ユースケース、要件）",
+      "テスト技法の適用状況",
+      "使用しているプログラミング言語",
+    ],
+    answer: [2, 3],
+    explanation: explanation.review.checkListUseOnReview,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+テスト自動実行ツールの主な目的として正しいものを2つ選択せよ。
+    `,
+    options: [
+      "全ての障害を自動で修正する",
+      "複数の環境で同じテストを実行する",
+      "設計書を自動生成する",
+      "手動では不可能なテストを実行する",
+      "テストデータを自動削除する",
+    ],
+    answer: [1, 3],
+    explanation: explanation.testToolAndAutomation.testToolType,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+品質特性「性能効率」に対するテストの実施方法として適切なものを2つ選択せよ。
+    `,
+    options: [
+      "ストレステストの実施",
+      "SQLインジェクションの確認",
+      "応答時間の計測",
+      "誤入力に対する警告表示の確認",
+      "構成ファイルのバージョン管理",
+    ],
+    answer: [0, 2],
+    explanation:
+      explanation.softwareQualityFeatureTest.businessDomainTestQualityFeature,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+リスク軽減に向けたテストアナリストの行動として適切なものを2つ選択せよ。
+    `,
+    options: [
+      "要件レビューに参加してプロダクトリスクの除去に寄与する",
+      "テスト対象の信頼性を確認せずに先に進める",
+      "合否基準が曖昧なテストケースを多く作成する",
+      "リスクの高い業務機能に特化したテスト技法を用いる",
+      "テスト計画に基づき探索的テストのみを実施する",
+    ],
+    answer: [0, 3],
+    explanation: explanation.testAnalystTasksInRiskBasedTest.riskMitigation,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+以下のうち、チェックリストベースドテストの特徴として正しいものを2つ選択せよ。
+    `,
+    options: [
+      "過去の障害傾向を再利用する",
+      "必ず事前に決められた実行順序でテストを行う",
+      "網羅性の確認や抜け漏れ防止に有効である",
+      "テスト対象の変更には不向きである",
+      "定型的な内容や基準に従った確認に適する",
+    ],
+    answer: [2, 4],
+    explanation: explanation.testTechniques.experienceBasedTestTechniques,
+    aiGenerated: true,
+    type: "multiple",
+  },
+  {
+    sentence: `
+以下のうち、「保守性」品質特性に関して、間接的に確認可能なテスト活動として適切なものを1つ選択せよ。
+    `,
+    options: [
+      "仕様書の文書量を増やす",
+      "変更に対する回帰テストの実施",
+      "コードのバージョンを削除する",
+      "開発スケジュールの短縮",
+    ],
+    answer: 1,
+    explanation:
+      explanation.softwareQualityFeatureTest.businessDomainTestQualityFeature,
+    aiGenerated: true,
+    type: "single",
   },
 ];
